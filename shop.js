@@ -23,7 +23,7 @@ function showNotification(message) {
 
 function updateCartDisplay() {
     // This would typically update a cart icon or sidebar
-    console.log('Cart updated:', cart);
+    // Cart has been updated with new items
 }
 
 // Filter functionality

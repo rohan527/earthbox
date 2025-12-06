@@ -487,7 +487,6 @@ function orderTerrarium() {
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         z-index: 3000;
         text-align: center;
-        animation: fadeIn 0.3s ease;
     `;
     notification.innerHTML = `
         <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>

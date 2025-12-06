@@ -38,21 +38,21 @@
             <h3>Filter By</h3>
             <div class="filter-section">
                 <h4>Type</h4>
-                <label><input type="checkbox" value="terrarium" class="filter-type"> Terrarium</label>
-                <label><input type="checkbox" value="vivarium" class="filter-type"> Vivarium</label>
+                <label for="filter-terrarium"><input type="checkbox" id="filter-terrarium" value="terrarium" class="filter-type"> Terrarium</label>
+                <label for="filter-vivarium"><input type="checkbox" id="filter-vivarium" value="vivarium" class="filter-type"> Vivarium</label>
             </div>
             <div class="filter-section">
                 <h4>Size</h4>
-                <label><input type="checkbox" value="small" class="filter-size"> Small</label>
-                <label><input type="checkbox" value="medium" class="filter-size"> Medium</label>
-                <label><input type="checkbox" value="large" class="filter-size"> Large</label>
+                <label for="filter-small"><input type="checkbox" id="filter-small" value="small" class="filter-size"> Small</label>
+                <label for="filter-medium"><input type="checkbox" id="filter-medium" value="medium" class="filter-size"> Medium</label>
+                <label for="filter-large"><input type="checkbox" id="filter-large" value="large" class="filter-size"> Large</label>
             </div>
             <div class="filter-section">
                 <h4>Price Range</h4>
-                <label><input type="checkbox" value="0-50" class="filter-price"> Under $50</label>
-                <label><input type="checkbox" value="50-100" class="filter-price"> $50 - $100</label>
-                <label><input type="checkbox" value="100-200" class="filter-price"> $100 - $200</label>
-                <label><input type="checkbox" value="200-999" class="filter-price"> Over $200</label>
+                <label for="filter-under50"><input type="checkbox" id="filter-under50" value="0-50" class="filter-price"> Under $50</label>
+                <label for="filter-50-100"><input type="checkbox" id="filter-50-100" value="50-100" class="filter-price"> $50 - $100</label>
+                <label for="filter-100-200"><input type="checkbox" id="filter-100-200" value="100-200" class="filter-price"> $100 - $200</label>
+                <label for="filter-over200"><input type="checkbox" id="filter-over200" value="200-999" class="filter-price"> Over $200</label>
             </div>
             <button class="btn btn-primary" onclick="resetFilters()">Reset Filters</button>
         </aside>
