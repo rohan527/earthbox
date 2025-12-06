@@ -26,7 +26,8 @@
     border-radius: 12px;
     box-shadow: var(--shadow);
     height: fit-content;
-    sticky: top: 90px;
+    position: sticky;
+    top: 90px;
 }
 
 .filters h3 {

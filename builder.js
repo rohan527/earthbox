@@ -81,10 +81,7 @@ function selectOption(category, id, name, price, emoji) {
             score -= 10;
         } else {
             // Select
-            if (category === 'plants' && id === 'none') {
-                // Clear all plants if "none" selected
-                selections.plants = [{ id, name, price, emoji }];
-            } else if (category === 'decorations' && id === 'none') {
+            if (category === 'decorations' && id === 'none') {
                 // Clear all decorations if "none" selected
                 selections.decorations = [{ id, name, price, emoji }];
             } else {
@@ -473,8 +470,32 @@ function closeModal() {
 }
 
 function orderTerrarium() {
-    alert('Thank you for your order! In a real application, this would process your payment and order.');
-    closeModal();
+    // Close the modal first
+    const modal = document.getElementById('completion-modal');
+    modal.classList.remove('show');
+    
+    // Show a styled notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem 3rem;
+        border-radius: 16px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        z-index: 3000;
+        text-align: center;
+        animation: fadeIn 0.3s ease;
+    `;
+    notification.innerHTML = `
+        <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
+        <h2 style="color: var(--dark-color); margin-bottom: 1rem;">Order Received!</h2>
+        <p style="color: #666; margin-bottom: 1.5rem;">Thank you for your order! In a real application, this would process your payment and order.</p>
+        <button onclick="this.parentElement.remove(); location.reload();" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;">Got it!</button>
+    `;
+    document.body.appendChild(notification);
 }
 
 // Initialize on page load
