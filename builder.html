@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrarium Builder - EarthBox</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="builder.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌿 EarthBox</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="builder.html" class="nav-link active">Builder</a></li>
+                <li><a href="care-guide.html" class="nav-link">Care Guide</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="builder-container">
+        <div class="builder-sidebar">
+            <div class="progress-section">
+                <h3>🎯 Your Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-text"><span id="progress-percent">0</span>% Complete</p>
+                <div class="score-display">
+                    <span class="score-label">Score:</span>
+                    <span class="score-value" id="score">0</span>
+                </div>
+            </div>
+
+            <div class="steps-section">
+                <h3>Build Steps</h3>
+                <div class="step" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-info">
+                        <div class="step-title">Choose Container</div>
+                        <div class="step-status">Pending</div>
+                    </div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-info">
+                        <div class="step-title">Select Base</div>
+                        <div class="step-status">Pending</div>
+                    </div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-info">
+                        <div class="step-title">Add Plants</div>
+                        <div class="step-status">Pending</div>
+                    </div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-info">
+                        <div class="step-title">Decorations</div>
+                        <div class="step-status">Pending</div>
+                    </div>
+                </div>
+                <div class="step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div class="step-info">
+                        <div class="step-title">Review & Order</div>
+                        <div class="step-status">Pending</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="achievements">
+                <h3>🏆 Achievements</h3>
+                <div id="achievements-list">
+                    <div class="achievement locked">First Choice 🎨</div>
+                    <div class="achievement locked">Plant Parent 🌱</div>
+                    <div class="achievement locked">Decorator 💎</div>
+                    <div class="achievement locked">Master Builder 🏆</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="builder-main">
+            <div class="builder-header">
+                <h1>Terrarium Builder</h1>
+                <p>Create your perfect miniature ecosystem - Step <span id="current-step">1</span> of 5</p>
+            </div>
+
+            <div class="preview-section">
+                <div class="terrarium-preview" id="terrarium-preview">
+                    <div class="preview-layer" id="container-layer"></div>
+                    <div class="preview-layer" id="base-layer"></div>
+                    <div class="preview-layer plants-layer" id="plants-layer"></div>
+                    <div class="preview-layer" id="decoration-layer"></div>
+                    <div class="preview-placeholder">
+                        <span>👁️</span>
+                        <p>Your terrarium will appear here</p>
+                    </div>
+                </div>
+                <div class="preview-info">
+                    <h3>Current Build</h3>
+                    <div id="selection-summary">
+                        <p class="empty-summary">Start by choosing a container!</p>
+                    </div>
+                    <div class="price-info">
+                        <span>Estimated Price:</span>
+                        <span class="price" id="total-price">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <h2 id="options-title">Choose Your Container</h2>
+                <p id="options-subtitle">Select the perfect home for your terrarium</p>
+                
+                <div class="options-grid" id="options-grid">
+                    <!-- Step 1: Containers -->
+                    <div class="option-card" data-step="1" data-id="sphere" data-name="Glass Sphere" data-price="25" data-emoji="🔮">
+                        <div class="option-image">🔮</div>
+                        <h3>Glass Sphere</h3>
+                        <p>Classic round shape, perfect for display</p>
+                        <span class="option-price">+$25</span>
+                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'sphere', 'Glass Sphere', 25, '🔮')">Select</button>
+                    </div>
+                    <div class="option-card" data-step="1" data-id="cube" data-name="Geometric Cube" data-price="30" data-emoji="📦">
+                        <div class="option-image">📦</div>
+                        <h3>Geometric Cube</h3>
+                        <p>Modern design with clean lines</p>
+                        <span class="option-price">+$30</span>
+                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'cube', 'Geometric Cube', 30, '📦')">Select</button>
+                    </div>
+                    <div class="option-card" data-step="1" data-id="cylinder" data-name="Tall Cylinder" data-price="28" data-emoji="🥛">
+                        <div class="option-image">🥛</div>
+                        <h3>Tall Cylinder</h3>
+                        <p>Great for vertical plant arrangements</p>
+                        <span class="option-price">+$28</span>
+                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'cylinder', 'Tall Cylinder', 28, '🥛')">Select</button>
+                    </div>
+                    <div class="option-card" data-step="1" data-id="bowl" data-name="Wide Bowl" data-price="22" data-emoji="🥣">
+                        <div class="option-image">🥣</div>
+                        <h3>Wide Bowl</h3>
+                        <p>Open top design for easy maintenance</p>
+                        <span class="option-price">+$22</span>
+                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'bowl', 'Wide Bowl', 22, '🥣')">Select</button>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" id="prev-btn" onclick="previousStep()" disabled>← Previous</button>
+                    <button class="btn btn-primary" id="next-btn" onclick="nextStep()" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About EarthBox</h4>
+                    <p>We're passionate about bringing nature into your home through beautiful, sustainable terrariums.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="builder.html">Builder</a></li>
+                        <li><a href="care-guide.html">Care Guide</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@earthbox.com</p>
+                    <p>Support: Available 9AM-5PM EST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EarthBox. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="completion-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Congratulations!</h2>
+            <p>You've completed your custom terrarium design!</p>
+            <div class="final-score">
+                <span>Final Score:</span>
+                <span id="final-score">0</span>
+            </div>
+            <div class="modal-summary" id="modal-summary"></div>
+            <div class="modal-price">
+                <span>Total Price:</span>
+                <span id="modal-price">$0.00</span>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" onclick="orderTerrarium()">Order Now</button>
+                <button class="btn btn-secondary" onclick="closeModal()">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="builder.js"></script>
+</body>
+</html>
