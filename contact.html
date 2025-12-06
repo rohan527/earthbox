@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - EarthBox</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .info-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .faq-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: #666;
+            display: none;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌿 EarthBox</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="builder.html" class="nav-link">Builder</a></li>
+                <li><a href="care-guide.html" class="nav-link">Care Guide</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-header">
+        <h1>Get in Touch</h1>
+        <p>We're here to help with all your terrarium needs</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            
+            <div class="info-item">
+                <div class="info-icon">📧</div>
+                <div class="info-content">
+                    <h3>Email</h3>
+                    <p>info@earthbox.com</p>
+                    <p style="color: #999; font-size: 0.9rem;">We respond within 24 hours</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">💬</div>
+                <div class="info-content">
+                    <h3>Customer Support</h3>
+                    <p>support@earthbox.com</p>
+                    <p style="color: #999; font-size: 0.9rem;">Monday - Friday, 9AM - 5PM EST</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📱</div>
+                <div class="info-content">
+                    <h3>Phone</h3>
+                    <p>1-800-EARTHBOX</p>
+                    <p style="color: #999; font-size: 0.9rem;">Monday - Friday, 9AM - 5PM EST</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🌐</div>
+                <div class="info-content">
+                    <h3>Social Media</h3>
+                    <p>Follow us for inspiration and tips</p>
+                    <p style="margin-top: 0.5rem;">
+                        <a href="#" style="margin-right: 1rem; color: var(--primary-color);">Instagram</a>
+                        <a href="#" style="margin-right: 1rem; color: var(--primary-color);">Pinterest</a>
+                        <a href="#" style="color: var(--primary-color);">Facebook</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a topic...</option>
+                        <option value="order">Order Inquiry</option>
+                        <option value="care">Care Question</option>
+                        <option value="custom">Custom Build</option>
+                        <option value="shipping">Shipping & Delivery</option>
+                        <option value="return">Returns & Exchanges</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>How long does shipping take?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Standard shipping takes 5-7 business days. We also offer expedited shipping (2-3 days) and express shipping (1-2 days) at checkout. All terrariums are carefully packaged to ensure they arrive in perfect condition.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Do you ship to my area?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We ship to all 50 US states and many international locations. During checkout, enter your zip code to see available shipping options and estimated delivery times for your area.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>What if my terrarium arrives damaged?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We take great care in packaging, but if your terrarium arrives damaged, please contact us within 48 hours with photos. We'll arrange for a replacement or full refund at no additional cost to you.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Can I customize my terrarium beyond the builder?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Absolutely! While our builder offers many options, we're happy to work with you on fully custom designs. Contact us with your ideas, and we'll create a custom quote for your unique vision.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>How often do I need to water my terrarium?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                It depends on the type! Closed terrariums may need water once a month or less, while open terrariums typically need watering every 1-2 weeks. Check out our detailed Care Guide for specific instructions.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Do you offer corporate or bulk orders?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes! We offer special pricing for bulk orders and corporate gifts. Terrariums make excellent employee gifts, event favors, and office decor. Contact us for a custom quote.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>Are your terrariums pet-safe?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                Most of our plants are non-toxic, but we recommend keeping terrariums out of reach of curious pets. If you have specific concerns, contact us and we can recommend pet-friendly plant options.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFAQ(this)">
+            <div class="faq-question">
+                <span>What's your return policy?</span>
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                We offer a 30-day satisfaction guarantee. If you're not happy with your terrarium, contact us for a return or exchange. Living plants must be returned in their original condition within 7 days.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About EarthBox</h4>
+                    <p>We're passionate about bringing nature into your home through beautiful, sustainable terrariums.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="builder.html">Builder</a></li>
+                        <li><a href="care-guide.html">Care Guide</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@earthbox.com</p>
+                    <p>Support: Available 9AM-5PM EST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EarthBox. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleFAQ(element) {
+            element.classList.toggle('active');
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Create custom notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem 3rem;
+                border-radius: 16px;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+                z-index: 3000;
+                text-align: center;
+                max-width: 90%;
+            `;
+            notification.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">✉️</div>
+                <h2 style="color: var(--dark-color); margin-bottom: 1rem;">Message Sent!</h2>
+                <p style="color: #666; margin-bottom: 1.5rem;">Thank you for your message! We will get back to you within 24 hours.</p>
+                <button onclick="this.parentElement.remove();" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-family: inherit;">Got it!</button>
+            `;
+            document.body.appendChild(notification);
+            
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>

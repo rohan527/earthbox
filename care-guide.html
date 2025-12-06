@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Guide - EarthBox</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .care-guide-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .care-guide-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .care-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .care-section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .care-section h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .care-section h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .care-section ul, .care-section ol {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .care-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-box {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+
+        .tip-box strong {
+            color: var(--primary-color);
+        }
+
+        .quick-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .quick-tip-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .quick-tip-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-tip-card h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌿 EarthBox</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="builder.html" class="nav-link">Builder</a></li>
+                <li><a href="care-guide.html" class="nav-link active">Care Guide</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="care-guide-header">
+        <h1>Terrarium Care Guide</h1>
+        <p>Everything you need to keep your miniature ecosystem thriving</p>
+    </div>
+
+    <div class="care-content">
+        <div class="quick-tips">
+            <div class="quick-tip-card">
+                <div class="icon">💧</div>
+                <h4>Water Wisely</h4>
+                <p>Less is more - overwatering is the #1 mistake</p>
+            </div>
+            <div class="quick-tip-card">
+                <div class="icon">☀️</div>
+                <h4>Bright Light</h4>
+                <p>Indirect sunlight is perfect for most terrariums</p>
+            </div>
+            <div class="quick-tip-card">
+                <div class="icon">🌡️</div>
+                <h4>Room Temperature</h4>
+                <p>Keep between 65-75°F for best results</p>
+            </div>
+        </div>
+
+        <div class="care-section">
+            <h2>🌱 Getting Started</h2>
+            <p>Congratulations on your new terrarium! Here's what to do first:</p>
+            <ol>
+                <li>Find the perfect spot with bright, indirect light</li>
+                <li>Let your terrarium acclimate for 24 hours before watering</li>
+                <li>Check for condensation - a little is good, too much means it needs air</li>
+                <li>Remove the lid (if closed) for a few hours if you see excessive moisture</li>
+            </ol>
+        </div>
+
+        <div class="care-section">
+            <h2>💧 Watering Guidelines</h2>
+            
+            <h3>Closed Terrariums</h3>
+            <ul>
+                <li>Water sparingly - once a month or less</li>
+                <li>The enclosed environment creates its own water cycle</li>
+                <li>Soil should be slightly moist, never soggy</li>
+                <li>If condensation covers more than 1/3 of the glass, reduce watering</li>
+            </ul>
+
+            <h3>Open Terrariums</h3>
+            <ul>
+                <li>Water when soil feels dry to the touch (usually every 1-2 weeks)</li>
+                <li>Spray lightly with a misting bottle</li>
+                <li>Succulents and cacti need even less water</li>
+                <li>Ensure good drainage to prevent root rot</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Use distilled or filtered water to prevent mineral buildup. Tap water can leave white spots on the glass.
+            </div>
+        </div>
+
+        <div class="care-section">
+            <h2>☀️ Light Requirements</h2>
+            <p>Proper lighting is crucial for healthy plants:</p>
+            <ul>
+                <li><strong>Ideal Location:</strong> Near a window with filtered light</li>
+                <li><strong>Avoid:</strong> Direct sunlight (can overheat and burn plants)</li>
+                <li><strong>Signs of Too Much Light:</strong> Brown or yellow leaves, dried out soil</li>
+                <li><strong>Signs of Too Little Light:</strong> Leggy growth, pale leaves, slow growth</li>
+                <li><strong>Artificial Light:</strong> LED grow lights work great for 10-12 hours daily</li>
+            </ul>
+        </div>
+
+        <div class="care-section">
+            <h2>✂️ Maintenance & Pruning</h2>
+            
+            <h3>Regular Maintenance</h3>
+            <ul>
+                <li>Remove dead or yellowing leaves promptly</li>
+                <li>Trim plants that grow too large with clean scissors</li>
+                <li>Wipe the inside of the glass with a soft cloth if it gets dirty</li>
+                <li>Check for pests monthly (though rare in closed systems)</li>
+            </ul>
+
+            <h3>When to Prune</h3>
+            <ul>
+                <li>Plants touching the glass or lid</li>
+                <li>Overgrowth blocking light to other plants</li>
+                <li>Leggy or unhealthy stems</li>
+                <li>To maintain your desired aesthetic</li>
+            </ul>
+        </div>
+
+        <div class="care-section">
+            <h2>🐛 Troubleshooting Common Issues</h2>
+            
+            <h3>Excessive Condensation</h3>
+            <p><strong>Solution:</strong> Remove lid for 2-4 hours, then replace. Repeat until condensation is minimal.</p>
+
+            <h3>Mold or Fungus</h3>
+            <p><strong>Solution:</strong> Remove affected areas immediately. Increase air circulation. Reduce watering.</p>
+
+            <h3>Yellow or Brown Leaves</h3>
+            <p><strong>Solution:</strong> Check watering schedule. Ensure proper light. Remove dead material.</p>
+
+            <h3>Slow or No Growth</h3>
+            <p><strong>Solution:</strong> Increase light exposure. Check if plants need more space or nutrients.</p>
+
+            <h3>Pests</h3>
+            <p><strong>Solution:</strong> Remove pests manually. Isolate terrarium. Consider replacing affected plants.</p>
+        </div>
+
+        <div class="care-section">
+            <h2>🌿 Plant-Specific Care</h2>
+            
+            <h3>Ferns</h3>
+            <p>Love humidity. Keep moist. Enjoy indirect light. Perfect for closed terrariums.</p>
+
+            <h3>Moss</h3>
+            <p>Needs constant moisture. Thrives in shade. Spray frequently in open terrariums.</p>
+
+            <h3>Succulents</h3>
+            <p>Prefer dry conditions. Need bright light. Water sparingly. Best in open terrariums.</p>
+
+            <h3>Ivy</h3>
+            <p>Fast grower. Needs regular pruning. Moderate water. Adaptable to various light conditions.</p>
+
+            <h3>Fittonias (Nerve Plant)</h3>
+            <p>Loves humidity. Needs consistent moisture. Prefers shade. Dramatic when thirsty but recovers quickly.</p>
+        </div>
+
+        <div class="care-section">
+            <h2>📅 Seasonal Care</h2>
+            
+            <h3>Spring/Summer</h3>
+            <ul>
+                <li>More active growth period</li>
+                <li>May need slightly more water</li>
+                <li>Watch for too much direct sun as days get longer</li>
+                <li>Good time for pruning and maintenance</li>
+            </ul>
+
+            <h3>Fall/Winter</h3>
+            <ul>
+                <li>Growth slows down</li>
+                <li>Reduce watering frequency</li>
+                <li>May need supplemental lighting</li>
+                <li>Keep away from heating vents</li>
+            </ul>
+        </div>
+
+        <div class="tip-box" style="text-align: center; margin-top: 3rem;">
+            <h3>Need More Help?</h3>
+            <p>Our team is here to support you on your terrarium journey!</p>
+            <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Contact Support</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About EarthBox</h4>
+                    <p>We're passionate about bringing nature into your home through beautiful, sustainable terrariums.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="builder.html">Builder</a></li>
+                        <li><a href="care-guide.html">Care Guide</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@earthbox.com</p>
+                    <p>Support: Available 9AM-5PM EST</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EarthBox. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
