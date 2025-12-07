@@ -1,20 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import requests
 import os
 
 app = Flask(__name__)
 CORS(app)
 
 # Config - for demo, use environment variables or edit here
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'your_email@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'your_app_password')
 EMAIL_RECEIVER = os.environ.get('EMAIL_RECEIVER', 'your_email@gmail.com')
 EMAIL_RECEIVER_2 = os.environ.get('EMAIL_RECEIVER_2', 'another_email@example.com')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY', '')
 
 @app.route('/api/contact', methods=['POST'])
 def contact():
@@ -25,22 +20,35 @@ def contact():
     if not name or not email or not message:
         return jsonify({'success': False, 'error': 'Missing fields'}), 400
 
-    # Compose email
+    # Compose email for SendGrid
     subject = f"New Contact Form Submission from {name}"
     body = f"Name: {name}\nEmail: {email}\nMessage:\n{message}"
-    msg = MIMEMultipart()
-    msg['From'] = EMAIL_HOST_USER
-    msg['To'] = ", ".join([EMAIL_RECEIVER, EMAIL_RECEIVER_2])
-    msg['Subject'] = subject
-    msg.attach(MIMEText(body, 'plain'))
-
+    recipients = [EMAIL_RECEIVER, EMAIL_RECEIVER_2]
+    data = {
+        "personalizations": [
+            {
+                "to": [{"email": r} for r in recipients],
+                "subject": subject
+            }
+        ],
+        "from": {"email": recipients[0]},
+        "content": [
+            {
+                "type": "text/plain",
+                "value": body
+            }
+        ]
+    }
+    headers = {
+        "Authorization": f"Bearer {SENDGRID_API_KEY}",
+        "Content-Type": "application/json"
+    }
     try:
-        server = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
-        server.starttls()
-        server.login(EMAIL_HOST_USER, EMAIL_HOST_PASSWORD)
-        server.sendmail(EMAIL_HOST_USER, [EMAIL_RECEIVER, EMAIL_RECEIVER_2], msg.as_string())
-        server.quit()
-        return jsonify({'success': True})
+        resp = requests.post("https://api.sendgrid.com/v3/mail/send", json=data, headers=headers)
+        if resp.status_code == 202:
+            return jsonify({'success': True})
+        else:
+            return jsonify({'success': False, 'error': resp.text}), 500
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
