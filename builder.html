@@ -120,44 +120,44 @@
             </div>
 
             <div class="options-section">
+                <div class="navigation-buttons navigation-top">
+                    <button class="btn btn-secondary" id="prev-btn" onclick="previousStep()" disabled>← Previous</button>
+                    <button class="btn btn-primary" id="next-btn" onclick="nextStep()" disabled>Next →</button>
+                </div>
+
                 <h2 id="options-title">Choose Your Container</h2>
                 <p id="options-subtitle">Select the perfect home for your terrarium</p>
                 
                 <div class="options-grid" id="options-grid">
                     <!-- Step 1: Containers -->
-                    <div class="option-card" data-step="1" data-id="sphere" data-name="Glass Sphere" data-price="25" data-emoji="🔮">
-                        <div class="option-image">🔮</div>
+                    <div class="option-card" data-step="1" data-id="sphere" data-name="Glass Sphere" data-price="25" data-emoji="🔷">
+                        <div class="option-image">🔷</div>
                         <h3>Glass Sphere</h3>
                         <p>Classic round shape, perfect for display</p>
                         <span class="option-price">+$25</span>
                         <button class="btn btn-primary btn-select" onclick="selectOption('container', 'sphere', 'Glass Sphere', 25, '🔮')">Select</button>
                     </div>
-                    <div class="option-card" data-step="1" data-id="cube" data-name="Geometric Cube" data-price="30" data-emoji="📦">
-                        <div class="option-image">📦</div>
+                    <div class="option-card" data-step="1" data-id="cube" data-name="Geometric Cube" data-price="30" data-emoji="🟦">
+                        <div class="option-image">🟦</div>
                         <h3>Geometric Cube</h3>
                         <p>Modern design with clean lines</p>
                         <span class="option-price">+$30</span>
                         <button class="btn btn-primary btn-select" onclick="selectOption('container', 'cube', 'Geometric Cube', 30, '📦')">Select</button>
                     </div>
-                    <div class="option-card" data-step="1" data-id="cylinder" data-name="Tall Cylinder" data-price="28" data-emoji="🥛">
-                        <div class="option-image">🥛</div>
+                    <div class="option-card" data-step="1" data-id="cylinder" data-name="Tall Cylinder" data-price="28" data-emoji="🔶">
+                        <div class="option-image">🔶</div>
                         <h3>Tall Cylinder</h3>
                         <p>Great for vertical plant arrangements</p>
                         <span class="option-price">+$28</span>
-                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'cylinder', 'Tall Cylinder', 28, '🥛')">Select</button>
+                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'cylinder', 'Tall Cylinder', 28, '🔶')">Select</button>
                     </div>
-                    <div class="option-card" data-step="1" data-id="bowl" data-name="Wide Bowl" data-price="22" data-emoji="🥣">
-                        <div class="option-image">🥣</div>
+                    <div class="option-card" data-step="1" data-id="bowl" data-name="Wide Bowl" data-price="22" data-emoji="🟩">
+                        <div class="option-image">🟩</div>
                         <h3>Wide Bowl</h3>
                         <p>Open top design for easy maintenance</p>
                         <span class="option-price">+$22</span>
-                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'bowl', 'Wide Bowl', 22, '🥣')">Select</button>
+                        <button class="btn btn-primary btn-select" onclick="selectOption('container', 'bowl', 'Wide Bowl', 22, '🟩')">Select</button>
                     </div>
-                </div>
-
-                <div class="navigation-buttons">
-                    <button class="btn btn-secondary" id="prev-btn" onclick="previousStep()" disabled>← Previous</button>
-                    <button class="btn btn-primary" id="next-btn" onclick="nextStep()" disabled>Next →</button>
                 </div>
             </div>
         </div>

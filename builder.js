@@ -16,10 +16,10 @@ const stepData = {
         title: "Choose Your Container",
         subtitle: "Select the perfect home for your terrarium",
         options: [
-            { id: 'sphere', name: 'Glass Sphere', price: 25, emoji: '🔮', description: 'Classic round shape, perfect for display' },
-            { id: 'cube', name: 'Geometric Cube', price: 30, emoji: '📦', description: 'Modern design with clean lines' },
-            { id: 'cylinder', name: 'Tall Cylinder', price: 28, emoji: '🥛', description: 'Great for vertical plant arrangements' },
-            { id: 'bowl', name: 'Wide Bowl', price: 22, emoji: '🥣', description: 'Open top design for easy maintenance' }
+            { id: 'sphere', name: 'Glass Sphere', price: 25, emoji: '🔷', description: 'Classic round shape, perfect for display' },
+            { id: 'cube', name: 'Geometric Cube', price: 30, emoji: '🟦', description: 'Modern design with clean lines' },
+            { id: 'cylinder', name: 'Tall Cylinder', price: 28, emoji: '🔶', description: 'Great for vertical plant arrangements' },
+            { id: 'bowl', name: 'Wide Bowl', price: 22, emoji: '🟩', description: 'Open top design for easy maintenance' }
         ]
     },
     2: {
@@ -27,9 +27,9 @@ const stepData = {
         subtitle: "Foundation for healthy plant growth",
         options: [
             { id: 'gravel', name: 'Natural Gravel', price: 8, emoji: '🪨', description: 'Excellent drainage and natural look' },
-            { id: 'sand', name: 'Colored Sand', price: 10, emoji: '🏖️', description: 'Decorative layers in various colors' },
-            { id: 'soil', name: 'Premium Soil Mix', price: 12, emoji: '🌱', description: 'Nutrient-rich organic blend' },
-            { id: 'charcoal', name: 'Activated Charcoal', price: 9, emoji: '⚫', description: 'Keeps terrarium fresh and clean' }
+            { id: 'sand', name: 'Colored Sand', price: 10, emoji: '🏜️', description: 'Decorative layers in various colors' },
+            { id: 'soil', name: 'Premium Soil Mix', price: 12, emoji: '🌍', description: 'Nutrient-rich organic blend' },
+            { id: 'charcoal', name: 'Activated Charcoal', price: 9, emoji: '⬛', description: 'Keeps terrarium fresh and clean' }
         ]
     },
     3: {
@@ -38,11 +38,11 @@ const stepData = {
         multiple: true,
         options: [
             { id: 'fern', name: 'Mini Fern', price: 12, emoji: '🌿', description: 'Loves humidity, easy care' },
-            { id: 'moss', name: 'Living Moss', price: 8, emoji: '🍀', description: 'Ground cover, vibrant green' },
+            { id: 'moss', name: 'Living Moss', price: 8, emoji: '🪨', description: 'Ground cover, vibrant green' },
             { id: 'succulent', name: 'Tiny Succulent', price: 10, emoji: '🌵', description: 'Low water, high charm' },
-            { id: 'ivy', name: 'Trailing Ivy', price: 11, emoji: '🌿', description: 'Cascading beauty' },
-            { id: 'peperomia', name: 'Peperomia', price: 13, emoji: '🪴', description: 'Colorful leaves, compact' },
-            { id: 'fitonia', name: 'Nerve Plant', price: 14, emoji: '🌺', description: 'Stunning patterns' }
+            { id: 'ivy', name: 'Trailing Ivy', price: 11, emoji: '🍃', description: 'Cascading beauty' },
+            { id: 'peperomia', name: 'Peperomia', price: 13, emoji: '🌱', description: 'Colorful leaves, compact' },
+            { id: 'fitonia', name: 'Nerve Plant', price: 14, emoji: '🪴', description: 'Stunning patterns' }
         ]
     },
     4: {
@@ -52,8 +52,8 @@ const stepData = {
         optional: true,
         options: [
             { id: 'rocks', name: 'Decorative Rocks', price: 5, emoji: '💎', description: 'Natural stone accents' },
-            { id: 'crystals', name: 'Crystals', price: 8, emoji: '💠', description: 'Sparkle and energy' },
-            { id: 'figurine', name: 'Mini Figurine', price: 7, emoji: '🦊', description: 'Cute woodland creatures' },
+            { id: 'crystals', name: 'Crystals', price: 8, emoji: '🔮', description: 'Sparkle and energy' },
+            { id: 'figurine', name: 'Mini Figurine', price: 7, emoji: '🦎', description: 'Subtle natural accents' },
             { id: 'driftwood', name: 'Driftwood', price: 6, emoji: '🪵', description: 'Natural wood piece' },
             { id: 'shells', name: 'Seashells', price: 5, emoji: '🐚', description: 'Beach vibes' },
             { id: 'none', name: 'No Decorations', price: 0, emoji: '✨', description: 'Keep it simple and natural' }
@@ -160,23 +160,23 @@ function updatePreview() {
     if (selections.container) {
         containerLayer.innerHTML = selections.container.emoji;
         containerLayer.style.opacity = '1';
+        containerLayer.style.fontSize = '8rem';
     }
     
     // Update base
     const baseLayer = document.getElementById('base-layer');
     if (selections.base) {
-        baseLayer.innerHTML = selections.base.emoji;
-        baseLayer.style.opacity = '0.8';
-        baseLayer.style.fontSize = '6rem';
-        baseLayer.style.bottom = '0';
-        baseLayer.style.top = 'auto';
+        baseLayer.innerHTML = selections.base.emoji.repeat(8);
+        baseLayer.style.opacity = '1';
+        baseLayer.style.fontSize = '2rem';
+        baseLayer.style.letterSpacing = '0.5rem';
     }
     
     // Update plants
     const plantsLayer = document.getElementById('plants-layer');
     if (selections.plants.length > 0) {
         plantsLayer.innerHTML = selections.plants.map(plant => 
-            `<span style="font-size: 3rem;">${plant.emoji}</span>`
+            `<span style="font-size: 2.5rem; margin: 0.5rem; display: inline-block;">${plant.emoji}</span>`
         ).join('');
         plantsLayer.style.opacity = '1';
     }
@@ -185,9 +185,12 @@ function updatePreview() {
     const decorationLayer = document.getElementById('decoration-layer');
     if (selections.decorations.length > 0 && selections.decorations[0].id !== 'none') {
         decorationLayer.innerHTML = selections.decorations.map(dec => 
-            `<span style="font-size: 2rem; margin: 0.5rem;">${dec.emoji}</span>`
+            `<span style="font-size: 1.8rem; margin: 0.3rem 0.5rem; display: inline-block;">${dec.emoji}</span>`
         ).join('');
         decorationLayer.style.opacity = '1';
+    } else {
+        decorationLayer.innerHTML = '';
+        decorationLayer.style.opacity = '0';
     }
 }
 

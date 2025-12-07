@@ -5,15 +5,17 @@
 }
 
 :root {
-    --primary-color: #2d6a4f;
-    --secondary-color: #52b788;
-    --accent-color: #74c69d;
-    --dark-color: #1b4332;
-    --light-color: #d8f3dc;
-    --text-color: #2d3748;
-    --bg-color: #ffffff;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --primary-color: #4ade80;
+    --secondary-color: #22c55e;
+    --accent-color: #86efac;
+    --dark-color: #0f172a;
+    --light-color: #1e293b;
+    --text-color: #e2e8f0;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -31,11 +33,12 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: var(--bg-color);
+    background-color: var(--dark-color);
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nav-container {
@@ -87,7 +90,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #1a3a3a 0%, #2d5a4f 100%);
     color: white;
     padding: 120px 20px;
     text-align: center;
@@ -172,14 +175,14 @@ body {
 /* Features Section */
 .features {
     padding: 80px 20px;
-    background-color: #f8f9fa;
+    background-color: var(--dark-color);
 }
 
 .features h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 
 .features-grid {
@@ -189,17 +192,20 @@ body {
 }
 
 .feature-card {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    border: 1px solid var(--border-color);
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(74, 222, 128, 0.05) 100%);
 }
 
 .feature-icon {
@@ -221,7 +227,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 
 .showcase-grid {
@@ -231,16 +237,18 @@ body {
 }
 
 .showcase-item {
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    border: 1px solid var(--border-color);
 }
 
 .showcase-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
 .showcase-image {
@@ -260,11 +268,11 @@ body {
 
 .showcase-item h3 {
     margin-top: 1.5rem;
-    color: var(--dark-color);
+    color: var(--primary-color);
 }
 
 .showcase-item p {
-    color: #666;
+    color: var(--text-color);
     margin: 0.5rem 1.5rem 1rem;
 }
 
@@ -274,7 +282,7 @@ body {
 
 /* CTA Section */
 .cta {
-    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1a3a3a 100%);
     color: white;
     padding: 80px 20px;
     text-align: center;
@@ -283,6 +291,7 @@ body {
 .cta h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
 .cta p {
@@ -293,9 +302,10 @@ body {
 
 /* Footer */
 footer {
-    background-color: var(--dark-color);
+    background-color: #030712;
     color: white;
     padding: 60px 20px 20px;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -358,12 +368,13 @@ footer {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: var(--bg-color);
+        background-color: var(--dark-color);
         width: 100%;
         text-align: center;
         transition: 0.3s;
         box-shadow: var(--shadow);
         padding: 2rem 0;
+        border-bottom: 1px solid var(--border-color);
     }
 
     .nav-menu.active {

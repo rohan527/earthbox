@@ -6,8 +6,19 @@
     <title>Contact Us - EarthBox</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            background-color: var(--dark-color);
+        }
+
+        .faq-section {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 20px;
+            background-color: var(--dark-color);
+        }
+
         .contact-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background: linear-gradient(135deg, #1a3a3a 0%, #2d5a4f 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -25,45 +36,53 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            background-color: var(--dark-color);
         }
 
         .contact-info {
-            background: white;
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
 
         .contact-info h2 {
-            color: var(--dark-color);
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-
         .info-item {
             display: flex;
             align-items: start;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background: #f8f9fa;
+            background: var(--light-color);
             border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }   border-radius: 8px;
         }
 
         .info-icon {
             font-size: 2rem;
             margin-right: 1rem;
-        }
-
         .info-content h3 {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
 
+        .info-content p {
         .contact-form {
-            background: white;
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
         }
 
         .contact-form h2 {
@@ -76,22 +95,18 @@
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             font-family: inherit;
             font-size: 1rem;
             transition: border-color 0.3s;
+            background: var(--light-color);
+            color: var(--text-color);
         }
 
         .form-group input:focus,
@@ -101,39 +116,53 @@
             border-color: var(--primary-color);
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #94a3b8;
         }
-
-        .faq-section {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 20px;
-        }
-
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
         .faq-section h2 {
             text-align: center;
-            color: var(--dark-color);
+            color: var(--primary-color);
             margin-bottom: 2rem;
         }
 
         .faq-item {
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
             margin-bottom: 1rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
             cursor: pointer;
             transition: all 0.3s;
+            border: 1px solid var(--border-color);
         }
 
         .faq-item:hover {
             box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(74, 222, 128, 0.05) 100%);
         }
 
         .faq-question {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: var(--text-color);
+            display: none;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }   display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
