@@ -154,4 +154,8 @@ For more help, see Render’s docs: https://render.com/docs/deploy-flask
 
 ---
 
+## Contact
+
+For any queries, email us at: [earthbox.mumbai@gmail.com](mailto:earthbox.mumbai@gmail.com)
+
 Created with 🌱 for terrarium enthusiasts everywhere

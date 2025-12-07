@@ -7,151 +7,170 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
-            background-color: var(--dark-color);
-        }
-
-        .faq-section {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 20px;
-            background-color: var(--dark-color);
+            background: linear-gradient(135deg, #1a3a3a 0%, #2d5a4f 100%);
+            min-height: 100vh;
         }
 
         .contact-header {
             background: linear-gradient(135deg, #1a3a3a 0%, #2d5a4f 100%);
-            color: white;
-            padding: 60px 20px;
+            color: #fff;
+            padding: 64px 20px 40px 20px;
             text-align: center;
+            border-radius: 0 0 32px 32px;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
         }
-
         .contact-header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .contact-header p {
+            color: #b6f5d8;
+            font-size: 1.2rem;
         }
 
         .contact-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            background-color: var(--dark-color);
+            padding: 48px 20px;
+            display: flex;
+            gap: 2.5rem;
+            background: rgba(20, 30, 30, 0.85);
+            border-radius: 24px;
+            box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+            position: relative;
+            top: -40px;
         }
-
+        .contact-info, .contact-form {
+            flex: 1 1 0;
+            background: rgba(34, 49, 63, 0.98);
+            padding: 2.2rem 2rem 2rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px 0 rgba(16, 185, 129, 0.07);
+            border: 1.5px solid var(--border-color);
+        }
         .contact-info {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            margin-right: 0.5rem;
         }
-
         .contact-info h2 {
             color: var(--primary-color);
             margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
         }
         .info-item {
             display: flex;
-            align-items: start;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: var(--light-color);
-            border-radius: 8px;
+            align-items: flex-start;
+            margin-bottom: 1.3rem;
+            padding: 1.1rem 1rem;
+            background: rgba(44, 62, 80, 0.92);
+            border-radius: 10px;
             border: 1px solid var(--border-color);
-        }   border-radius: 8px;
+            box-shadow: 0 1px 8px 0 rgba(16, 185, 129, 0.04);
         }
-
         .info-icon {
-            font-size: 2rem;
-            margin-right: 1rem;
+            font-size: 2.1rem;
+            margin-right: 1.1rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
         .info-content h3 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-size: 1.08rem;
         }
-
         .info-content p {
-        .contact-form {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
+            color: #e0f2f1;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
         }
-
         .contact-form h2 {
             color: var(--primary-color);
             margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
         }
-
-        .contact-form h2 {
-            color: var(--dark-color);
-            margin-bottom: 1.5rem;
-        }
-
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.3rem;
         }
-
         .form-group label {
+            color: #b6f5d8;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 14px 16px;
+            padding: 13px 15px;
             border: 1.5px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 9px;
             font-family: inherit;
             font-size: 1.05rem;
-            background: rgba(30,41,59,0.95);
+            background: rgba(30,41,59,0.97);
             color: var(--text-color);
             box-shadow: 0 2px 12px 0 rgba(16, 185, 129, 0.04);
             transition: border-color 0.3s, box-shadow 0.3s;
         }
-
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(74,222,128,0.15);
+            box-shadow: 0 0 0 2px rgba(74,222,128,0.13);
         }
-
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: #94a3b8;
             opacity: 0.85;
             font-style: italic;
         }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
+        .contact-form p {
+            color: #b6f5d8;
+        }
+        .btn.btn-primary {
+            background: linear-gradient(90deg, var(--primary-color) 60%, #1a3a3a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            padding: 12px 0;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn.btn-primary:hover {
+            background: linear-gradient(90deg, #1a3a3a 0%, var(--primary-color) 100%);
+        }
+        .faq-section {
+            max-width: 900px;
+            margin: 3rem auto 2rem auto;
+            padding: 0 20px 2rem 20px;
+            background: rgba(20, 30, 30, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px 0 rgba(16, 185, 129, 0.07);
+        }
         .faq-section h2 {
             text-align: center;
             color: var(--primary-color);
             margin-bottom: 2rem;
         }
-
         .faq-item {
-            background: var(--card-bg);
+            background: rgba(34, 49, 63, 0.98);
             padding: 1.5rem;
             margin-bottom: 1rem;
             border-radius: 12px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 1px 8px 0 rgba(16, 185, 129, 0.04);
             cursor: pointer;
             transition: all 0.3s;
             border: 1px solid var(--border-color);
         }
-
         .faq-item:hover {
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 2px 16px 0 rgba(16, 185, 129, 0.09);
             border-color: var(--primary-color);
             background: linear-gradient(135deg, var(--card-bg) 0%, rgba(74, 222, 128, 0.05) 100%);
         }
-
         .faq-question {
             display: flex;
             justify-content: space-between;
@@ -159,45 +178,48 @@
             font-weight: 600;
             color: var(--primary-color);
         }
-
         .faq-answer {
             margin-top: 1rem;
-            color: var(--text-color);
+            color: #b6f5d8;
             display: none;
             padding-top: 1rem;
             border-top: 1px solid var(--border-color);
-        }   display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--dark-color);
         }
-
-        .faq-answer {
-            margin-top: 1rem;
-            color: #666;
-            display: none;
-            padding-top: 1rem;
-            border-top: 1px solid #e0e0e0;
-        }
-
         .faq-item.active .faq-answer {
             display: block;
         }
-
         .faq-toggle {
             font-size: 1.5rem;
             color: var(--primary-color);
             transition: transform 0.3s;
         }
-
         .faq-item.active .faq-toggle {
             transform: rotate(45deg);
         }
-
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .contact-container {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                gap: 2rem;
+                padding: 32px 8px;
+            }
+        }
+        @media (max-width: 600px) {
+            .contact-header {
+                padding: 40px 8px 24px 8px;
+                font-size: 1.2rem;
+            }
+            .contact-container {
+                padding: 18px 2px;
+                border-radius: 0;
+                top: 0;
+            }
+            .contact-info, .contact-form {
+                padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+                border-radius: 10px;
+            }
+            .faq-section {
+                padding: 0 2px 1rem 2px;
+                border-radius: 10px;
             }
         }
     </style>
@@ -302,6 +324,7 @@
                     <textarea id="message" name="message" required></textarea>
                 </div>
 
+                <p style="margin-bottom: 1rem; color: var(--primary-color); font-size: 1rem;">Or email us directly at <a href="mailto:earthbox.mumbai@gmail.com">earthbox.mumbai@gmail.com</a></p>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
             </form>
         </div>
@@ -409,7 +432,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Email: info@earthbox.com</p>
+                    <p>Email: <a href="mailto:earthbox.mumbai@gmail.com">earthbox.mumbai@gmail.com</a></p>
                     <p>Support: Available 9AM-5PM EST</p>
                 </div>
             </div>
@@ -452,7 +475,7 @@
             document.body.appendChild(notification);
 
             try {
-                const res = await fetch('http://localhost:5000/api/contact', {
+                const res = await fetch('https://earthbox-xfow.onrender.com/api/contact', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, subject, message })
