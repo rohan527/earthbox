@@ -9,6 +9,7 @@ CORS(app)
 # Config - for demo, use environment variables or edit here
 EMAIL_RECEIVER = os.environ.get('EMAIL_RECEIVER', 'your_email@gmail.com')
 EMAIL_RECEIVER_2 = os.environ.get('EMAIL_RECEIVER_2', 'another_email@example.com')
+EMAIL_SENDER = os.environ.get('EMAIL_SENDER', 'earthbox.mum@gmail.com')
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY', '')
 
 @app.route('/api/contact', methods=['POST'])
@@ -21,6 +22,8 @@ def contact():
         return jsonify({'success': False, 'error': 'Missing fields'}), 400
 
     # Compose email for SendGrid
+    if not EMAIL_SENDER:
+        return jsonify({'success': False, 'error': 'EMAIL_SENDER environment variable not set'}), 500
     subject = f"New Contact Form Submission from {name}"
     body = f"Name: {name}\nEmail: {email}\nMessage:\n{message}"
     recipients = [EMAIL_RECEIVER, EMAIL_RECEIVER_2]
@@ -31,7 +34,7 @@ def contact():
                 "subject": subject
             }
         ],
-        "from": {"email": recipients[0]},
+        "from": {"email": EMAIL_SENDER},
         "content": [
             {
                 "type": "text/plain",
