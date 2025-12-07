@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - EarthBox</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
             background-color: var(--dark-color);
@@ -99,14 +99,15 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
             font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-            background: var(--light-color);
+            font-size: 1.05rem;
+            background: rgba(30,41,59,0.95);
             color: var(--text-color);
+            box-shadow: 0 2px 12px 0 rgba(16, 185, 129, 0.04);
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         .form-group input:focus,
@@ -114,11 +115,14 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74,222,128,0.15);
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: #94a3b8;
+            opacity: 0.85;
+            font-style: italic;
         }
         .form-group input:focus,
         .form-group textarea:focus,
@@ -415,16 +419,21 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     <script>
         function toggleFAQ(element) {
             element.classList.toggle('active');
         }
 
-        function handleSubmit(event) {
+        async function handleSubmit(event) {
             event.preventDefault();
-            
-            // Create custom notification
+            const form = document.getElementById('contactForm');
+            const name = form.name.value;
+            const email = form.email.value;
+            const subject = form.subject.value;
+            const message = form.message.value;
+
+            // Show loading notification
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -439,15 +448,38 @@
                 text-align: center;
                 max-width: 90%;
             `;
-            notification.innerHTML = `
-                <div style="font-size: 3rem; margin-bottom: 1rem;">✉️</div>
-                <h2 style="color: var(--dark-color); margin-bottom: 1rem;">Message Sent!</h2>
-                <p style="color: #666; margin-bottom: 1.5rem;">Thank you for your message! We will get back to you within 24 hours.</p>
-                <button onclick="this.parentElement.remove();" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-family: inherit;">Got it!</button>
-            `;
+            notification.innerHTML = `<div style='font-size:2rem;'>Sending...</div>`;
             document.body.appendChild(notification);
-            
-            document.getElementById('contactForm').reset();
+
+            try {
+                const res = await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, subject, message })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    notification.innerHTML = `
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✉️</div>
+                        <h2 style="color: var(--dark-color); margin-bottom: 1rem;">Message Sent!</h2>
+                        <p style="color: #666; margin-bottom: 1.5rem;">Thank you for your message! We will get back to you within 24 hours.</p>
+                        <button onclick="this.parentElement.remove();" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-family: inherit;">Got it!</button>
+                    `;
+                    form.reset();
+                } else {
+                    notification.innerHTML = `
+                        <div style='font-size:2rem;color:red;'>Error sending message.</div>
+                        <p>${data.error || 'Please try again later.'}</p>
+                        <button onclick="this.parentElement.remove();" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-family: inherit;">Close</button>
+                    `;
+                }
+            } catch (err) {
+                notification.innerHTML = `
+                    <div style='font-size:2rem;color:red;'>Network error.</div>
+                    <p>${err.message}</p>
+                    <button onclick="this.parentElement.remove();" style="background: var(--primary-color); color: white; padding: 12px 30px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-family: inherit;">Close</button>
+                `;
+            }
         }
     </script>
 </body>

@@ -154,43 +154,50 @@ function updateSelectionUI(category) {
 function updatePreview() {
     const preview = document.getElementById('terrarium-preview');
     preview.classList.add('building');
-    
-    // Update container
-    const containerLayer = document.getElementById('container-layer');
-    if (selections.container) {
-        containerLayer.innerHTML = selections.container.emoji;
-        containerLayer.style.opacity = '1';
-        containerLayer.style.fontSize = '8rem';
-    }
-    
-    // Update base
-    const baseLayer = document.getElementById('base-layer');
-    if (selections.base) {
-        baseLayer.innerHTML = selections.base.emoji.repeat(8);
-        baseLayer.style.opacity = '1';
-        baseLayer.style.fontSize = '2rem';
-        baseLayer.style.letterSpacing = '0.5rem';
-    }
-    
-    // Update plants
-    const plantsLayer = document.getElementById('plants-layer');
-    if (selections.plants.length > 0) {
-        plantsLayer.innerHTML = selections.plants.map(plant => 
-            `<span style="font-size: 2.5rem; margin: 0.5rem; display: inline-block;">${plant.emoji}</span>`
-        ).join('');
-        plantsLayer.style.opacity = '1';
-    }
-    
-    // Update decorations
-    const decorationLayer = document.getElementById('decoration-layer');
-    if (selections.decorations.length > 0 && selections.decorations[0].id !== 'none') {
-        decorationLayer.innerHTML = selections.decorations.map(dec => 
-            `<span style="font-size: 1.8rem; margin: 0.3rem 0.5rem; display: inline-block;">${dec.emoji}</span>`
-        ).join('');
-        decorationLayer.style.opacity = '1';
+
+    // Hide placeholder if any selection is made
+    const placeholder = preview.querySelector('.preview-placeholder');
+    if (
+        selections.container ||
+        selections.base ||
+        selections.plants.length > 0 ||
+        (selections.decorations.length > 0 && selections.decorations[0].id !== 'none')
+    ) {
+        if (placeholder) placeholder.style.display = 'none';
     } else {
-        decorationLayer.innerHTML = '';
-        decorationLayer.style.opacity = '0';
+        if (placeholder) placeholder.style.display = '';
+    }
+
+    // Update container row
+    const containerRow = document.getElementById('container-row');
+    if (selections.container) {
+        containerRow.innerHTML = `<span class="preview-emoji" style="font-size: 5rem;">${selections.container.emoji}</span>`;
+    } else {
+        containerRow.innerHTML = '';
+    }
+
+    // Update base row
+    const baseRow = document.getElementById('base-row');
+    if (selections.base) {
+        baseRow.innerHTML = `<span class="preview-emoji" style="font-size: 2.2rem; letter-spacing: 0.3rem;">${selections.base.emoji.repeat(8)}</span>`;
+    } else {
+        baseRow.innerHTML = '';
+    }
+
+    // Update plants row
+    const plantsRow = document.getElementById('plants-row');
+    if (selections.plants.length > 0) {
+        plantsRow.innerHTML = selections.plants.map(plant => `<span class="preview-emoji" style="font-size: 2.2rem; margin: 0 0.5rem;">${plant.emoji}</span>`).join('');
+    } else {
+        plantsRow.innerHTML = '';
+    }
+
+    // Update decorations row
+    const decorationsRow = document.getElementById('decorations-row');
+    if (selections.decorations.length > 0 && selections.decorations[0].id !== 'none') {
+        decorationsRow.innerHTML = selections.decorations.map(dec => `<span class="preview-emoji" style="font-size: 1.7rem; margin: 0 0.4rem;">${dec.emoji}</span>`).join('');
+    } else {
+        decorationsRow.innerHTML = '';
     }
 }
 
