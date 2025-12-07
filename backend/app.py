@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 # Config - for demo, use environment variables or edit here
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
